@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="1100dp"
+    android:layout_height="660dp"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    android:padding="5dp"
+    >
+     
+    <Button 
+        android:id="@+id/btn_focus"
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
+	
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/image_container"
+        >
+	    <TextView 
+	        android:id="@+id/ad_image"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:padding="50dp"
+	        />
+	    
+	    <LinearLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_centerHorizontal="true"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginBottom="20dp"
+	        android:gravity="center_vertical"
+	        >
+	        	<TextView 
+	        	    android:id="@+id/ad_arrow_left"
+	            	android:layout_width="wrap_content"
+	       	    	android:layout_height="wrap_content"
+	       	    	android:background="@drawable/ad_arrow_left"
+	       	    	android:layout_marginRight="20dp"
+	        		/>
+	        	<TextView 
+	        	    android:id="@+id/ad_page"
+	            	android:layout_width="wrap_content"
+	       	    	android:layout_height="wrap_content"
+	       	    	android:background="@drawable/ad_page"
+	       	    	style="@style/text_24_f2f2f2"
+	       	    	android:gravity="center"
+	        		/>
+	        	<TextView 
+	        	    android:id="@+id/ad_arrow_right"
+	            	android:layout_width="wrap_content"
+	       	    	android:layout_height="wrap_content"
+	       	    	android:background="@drawable/ad_arrow_right"
+	       	    	android:layout_marginLeft="20dp"
+	        		/>
+	    </LinearLayout>
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/videoview_container"
+        android:background="@color/text_black"
+        >
+	    <com.bestbaan.moonbox.view.VideoView 
+	        android:id="@+id/videoview"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        />
+    
+    </RelativeLayout>
+    
+
+</LinearLayout>

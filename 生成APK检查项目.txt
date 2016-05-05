@@ -1,0 +1,11 @@
+1.检查Configs.java中是选择板子的型号  M2S 或者  MX 或者 M3S
+2.检查 WelcomeActivity.java中的mListInitApp中是否需要内置并且显示到桌面的应用，如果不需要内置并且显示到桌面
+       则不进行添加。
+3.检查Constant.java中首页显示国家的数量
+4.检查LOGGER是否已经关闭
+5.确定经过爱加密加密
+6.确定Config中区域限制功能是否正确开启
+  Configs.isVerifyRegionRestrictions 检查
+8 m4 AndroidManifest.xml 过滤条件为:<category android:name="android.intent.category.MYHOME" />
+  m3 为  <category android:name="android.intent.category.HOME" />
+9.MacUtils中检查MAC码

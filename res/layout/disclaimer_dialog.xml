@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/main_bg_3"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="32dp"
+        android:lineSpacingExtra="10dp"
+        android:text="@string/disclaimer" 
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:gravity="center"
+        />
+	
+    <TextView
+        android:id="@+id/disclaimer_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="26dp"
+        android:lineSpacingExtra="9dp"
+        android:text="@string/disclaimer_content" 
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:maxLines="11"
+        android:minLines="11"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
+        android:singleLine="false"
+        />
+
+    <Button
+        android:id="@+id/commit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/read_disclaimer" 
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_disclaimer"
+        style="@style/disclaimer_btn_text"
+        android:focusable="false"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>

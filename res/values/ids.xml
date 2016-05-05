@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="welcome_country_grid" type="id"/>
+    <item name="country_image" type="id" />
+    <item name="country_name" type="id" />
+    <item name="navigation_container" type="id" />
+    <item name="fragment_container" type="id" />
+    <item name="index_grid" type="id" />
+    <item name="index_gallery" type="id" />
+    <item name="arrow_left" type="id" />
+    <item name="page_app_gridview" type="id" />
+    <item name="arrow_right" type="id" />
+    <item name="app_item_name" type="id" />
+    <item name="app_item_imageview" type="id" />
+    <item name="page_apps_appgrid" type="id" />
+    <item name="app_mamager_item_btn_toindex" type="id" />
+    <item name="index_prompt" type="id" />
+    <item name="page_moonbox_listview" type="id" />
+    <item name="page_moonbox_mac" type="id" />
+    <item name="page_moonbox_hardware" type="id" />
+    <item name="page_moonbox_version" type="id" />
+    <item name="ad_image" type="id" />
+    <item name="user_msg_item_text" type="id" />
+    <item name="user_msg_item_icon" type="id" />
+    <item name="user_msg_show_content" type="id" />
+    <item name="user_msg_show_title" type="id" />
+    <item name="status_bar_msg" type="id" />
+    <item name="status_bar_sub" type="id" />
+    <item name="status_bar_eth" type="id" />
+    <item name="status_bar_wifi" type="id" />
+    <item name="status_bar_lan" type="id" />
+    <item name="welcome_text" type="id" />
+    <item name="messagetxt" type="id" />
+    <item name="user_msg_item_date" type="id" />
+    <item name="user_msg_show_content_date" type="id" />
+    <item name="page_moonbox_msg_page" type="id" />
+    <item name="ad_container" type="id" />
+    <item name="app_item_version" type="id" />
+    <item name="ad_page_num" type="id" />
+    <item name="statusbar" type="id" />
+    <item name="text_title" type="id" />
+    <item name="fragment_index" type="id"></item>
+    <item name="fragment_app" type="id"></item>
+    <item name="fragment_app_admin" type="id"></item>
+    <item name="fragment_moonbox" type="id"></item>
+</resources>

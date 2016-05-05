@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MBUI4</string>
+    <string name="chinese_simple">中文简体</string>
+    <string name="english">English</string>
+    <string name="Vietnamese">tiếng Việt</string>
+    <string name="Chinese_traditional ">中文繁體</string>
+    <string name="japan">日本語</string>
+    <string name="korea">한국의</string>
+    <string name="index">Trang Chính</string>
+    <string name="apps">Ứng dụng</string>
+    <string name="app_manager">Happy Life</string>
+    <string name="setting">Cài Đặt</string>
+    <string name="my_moonbox">MoonBox</string>
+    <string name="has_to_first">Đầu Trang</string>
+    <string name="has_to_last">Trang Cuối</string>
+    <string name="unstall">Tháo Bỏ</string>
+    <string name="to_desktp">Đem Ra Trang Chính</string>
+    <string name="cancel_to_desktp">Xoá Khỏi Trang Chính</string>
+    <string name="desktop_noapp_prompt">Chưa Có Ứng Dụng</string>
+    <string name="mac">MAC:</string>
+    <string name="hardware_name">Phiên Bản Ổ Cứng:</string>
+    <string name="version">Phiên Bản:</string>
+    <string name="message">Thông Báo:</string>
+    <string name="welcome_banner">Thế Giới Giải Trí Của Bạn Xem Phim Thật Đã, Cả Nhà Cùng Vui</string>
+    <string name="soft_version">Phiên Bản Phần Mềm:</string>
+    <string name="broswer">Internet</string>
+    <string name="file">Quản Lý Tập Tin</string>
+    <string name="video">Video</string>
+    <string name="settings">Cài Đặt</string>
+    <string name="gallery">Thư Viện</string>
+    <string name="music">Nhạc</string>
+    <string name="download">Tải Xuống</string>
+    <string name="appstore">Kho Ứng Dụng</string>
+    <string name="app_not_found">Không Tìm Thấy Ứng Dụng</string>
+    <string name="title_alert">Thông Báo</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Huỷ Bỏ</string>
+    <string name="jiong">Trang Chính Đầy</string>
+    <string name="prompt">Nhắc Nhở</string>
+    <string name="update">Cập Nhật</string>
+    <string name="index_ad">Cám ơn bạn đã sử dụng MoonBox - Thế Giới Giải Trí Của Bạn Xem Phim Thật Đã, Cả Nhà Cùng Vui</string>
+    <string name="startdownload">Tải Xuống Để Cập Nhật</string>
+    <string name="media_center">Media Center</string>
+    <string name="upgrade">Nâng Cấp Moonbox</string>
+    <string name="box_setting">Cài Đặt Moonbox</string>
+    <string name="google_play">Google play</string>
+    <string name="france">français</string>
+    <string name="pree_any_key_to_return">Nhấn Bất Kì Nút Nào Để Về Trang</string>
+    
+    <string name="disclaimer">Trách Nhiệm Pháp Lý</string>
+    <string name="disclaimer_content">\u3000\u3000Moonbox là một thiết bị giải trí truyền thông hoạt động trên hệ điều hành Android, được sản xuất bởi Công ty trách nhiệm hữu hạn Wisdom International Hongkong*.\n
+			\u3000\u3000Để có thể sử dụng Moonbox, một hoặc nhiều ứng dụng của nhà sản xuất thứ ba phải được cài đặt vào Moonbox thông qua nguồn của người sử dụng, như Internet. Công ty* và Moonbox không chịu trách nhiệm với nội dung của các ứng dụng bên thứ ba liên quan đến tính chính xác, bản quyền, và tính hợp pháp. Người sử dụng sẽ chịu trách nhiệm pháp lý về việc sử dụng các ứng dụng bên thứ ba vi phạm các điều lệ bản quyền, nội dung chính trị, v...v. Người sử dụng nên tuân theo các điều luật, điều lệ, luật pháp địa phương, không nên cài đặt các ứng dung vi phạm pháp luật như khiêu dâm, bạo lực, vi phạm bản quyền.\n 
+			\u3000\u3000Cám ơn bạn đã sử dụng Moonbox. Mọi ý kiến hoặc cần thêm thông tin chi tiết, xin liên hệ service@moonbox.hk.</string>
+    <string name="agree_disclaimer">Đồng ý</string>
+    <string name="read_disclaimer">Đồng ý</string>
+    <string name="save_mac_fail">Save mac fial!</string>
+	<string name="save_mac_success">Save mac success!</string>
+	<string name="player_null">Please install the player, otherwise unable to play</string>
+	<string name="network_not_connect">Network not connect</string>
+	<string name="ready_play">Ready play</string>
+	<string name="appstore2">App Store</string>
+	<string name="app_position_mgr">Loại ứng dụng máy tính để bàn</string>
+		<string name="model">Model :</string>
+    <string name="modelver">Build :</string>
+    <string name="kernelver">Kernel :</string>
+    <string name="testing">Check up :</string>
+    <string name="test_start">Start</string>
+    <string name="test_ing">Testing </string>
+    <string name="test_sort">Icon sort</string>
+    <string name="test_sort_info"></string>
+     <string name="get_banner_error">Failed to load</string>
+</resources>

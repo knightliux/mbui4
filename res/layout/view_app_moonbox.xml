@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".MainActivity" >
+
+    <com.moon.android.iptv.PageMoonBoxView
+        android:id="@+id/page_moonbox_view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:tag="@+id/page_moonbox_tag" />
+
+</LinearLayout>

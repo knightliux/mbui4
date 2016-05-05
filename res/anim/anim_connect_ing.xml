@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <animation-list xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:oneshot="false">
+     <item android:drawable="@drawable/weather_load1" android:duration="70" />    
+     <item android:drawable="@drawable/weather_load2" android:duration="70" />
+     <item android:drawable="@drawable/weather_load3" android:duration="70" />
+     <item android:drawable="@drawable/weather_load4" android:duration="70" />
+     <item android:drawable="@drawable/weather_load5" android:duration="70" />
+     <item android:drawable="@drawable/weather_load6" android:duration="70" />
+     <item android:drawable="@drawable/weather_load7" android:duration="70" />
+     <item android:drawable="@drawable/weather_load8" android:duration="70" />
+
+</animation-list>
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MBUI4</string>
+    <string name="chinese_simple">中文简体</string>
+    <string name="english">English</string>
+    <string name="Vietnamese">tiếng Việt</string>
+    <string name="Chinese_traditional ">中文繁體</string>
+    <string name="japan">日本語</string>
+    <string name="korea">한국의</string>
+    <string name="index">桌面</string>
+    <string name="apps">我的应用</string>
+    <string name="app_manager">乐活国际</string>
+    <string name="setting">设置</string>
+    <string name="my_moonbox">我的MoonBox</string>
+    <string name="has_to_first">已经到达首页</string>
+    <string name="has_to_last">已经到达尾页</string>
+    <string name="unstall">卸载</string>
+    <string name="to_desktp">置桌面</string>
+    <string name="cancel_to_desktp">取消置桌面</string>
+    <string name="desktop_noapp_prompt">请从应用管理中挑选应用显示在此处</string>
+    <string name="mac">MAC :</string>
+    <string name="ver">MBUI版本:</string>
+    <string name="hardware_name">硬件名称:</string>
+    <string name="version">MBUI版本 :</string>
+    <string name="message">用户消息:</string>
+    <string name="welcome_banner">释放 • 感动 • 健康 • 快乐</string>
+    <string name="soft_version">软件版本:</string>
+    <string name="broswer">浏览器</string>
+    <string name="file">文件浏览器</string>
+    <string name="video">视频播放器</string>
+    <string name="settings">系统设置</string>
+    <string name="gallery">图片播放器</string>
+    <string name="music">我的音乐</string>
+    <string name="download">下载管理</string>
+    <string name="appstore">谷歌商城</string>
+    <string name="app_not_found">应用未安装或者出现错误！</string>
+    <string name="title_alert">提示信息</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="jiong">桌面已满啦,最多只可以放40个应用!</string>
+    <string name="prompt">提示</string>
+    <string name="index_ad">感謝您選用MoonBox產品. 釋放 感動 健康 快樂</string>
+    <string name="update">升级</string>
+    <string name="startdownload">开始下载升级包</string>
+    <string name="media_center">媒体中心</string>
+    <string name="upgrade">硬件升级</string>
+    <string name="box_setting">盒子设置</string>
+    <string name="google_play">谷歌商城</string>
+    <string name="france">français</string>
+    <string name="pree_any_key_to_return">按任意键返回列表</string>
+    <string name="disclaimer">免责声明</string>
+    <string name="disclaimer_content">\u3000\u3000MoonBox是由智澳国际（香港）有限公司（以下称“本公司”）出品的一款高清多媒体网络播放器（以下称“本播放器”），搭载开放的安卓操作系统。\n
+			\u3000\u3000用户通过本播放器可以安装使用海量第三方安卓应用，进行各类视、听及游戏等应用的体验，本公司不对用户安装应用所包含内容的真实性、准确性、合法性负责。本播放器作为一个开放的载体，安装的所有应用均来自于互联网，由用户自行安装第三方应用所带来的后果，与本公司无关，敬请广大MoonBox用户自觉遵守当地的法律法规，不要安装使用任何含有色情、暴力、版权争议及有违当地法律法规的第三方应用。\n
+			\u3000\u3000感谢您选择MoonBox，欢迎新老用户通过邮件（service@moonbox.hk）与我们互动交流，您们的意见对我们提升产品及服务至关重要。</string>
+    <string name="agree_disclaimer">同意</string>
+    <string name="read_disclaimer">同意</string>
+    <string name="save_mac_fail">保存MAC地址失败!</string>
+	<string name="save_mac_success">保存MAC地址成功!</string>
+	<string name="player_null">请安装播放器，否则无法播放</string>
+	<string name="network_not_connect">网络未连接</string>
+	<string name="ready_play">准备播放</string>
+	<string name="appstore2">应用商城</string>
+	<string name="app_position_mgr">桌面应用排序</string>
+	
+	
+	<!-- mbui4 string -->
+	<string name="model">型号 :</string>
+    <string name="modelver">版本号 :</string>
+    <string name="kernelver">内核版本 :</string>
+    <string name="testing">盒子医生 :</string>
+    <string name="test_start">开始检测 </string>
+    <string name="test_ing">正在检测 </string>
+    <string name="test_sort">桌面换位</string>
+    <string name="test_sort_info">（选中您想要换位的图标，移动光标到置换的位置点击OK即可）</string>
+     <string name="get_banner_error">获取图片失败</string>
+</resources>

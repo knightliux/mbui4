@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MBUI4</string>
+    <string name="chinese_simple">中文简体</string>
+    <string name="english">English</string>
+    <string name="Vietnamese">tiếng Việt</string>
+    <string name="Chinese_traditional ">中文繁體</string>
+    <string name="japan">日本語</string>
+    <string name="korea">한국의</string>
+    <string name="index">Bureau</string>
+    <string name="apps">Application</string>
+    <string name="app_manager">Happy Life</string>
+    <string name="setting">Parametre</string>
+    <string name="my_moonbox">MoonBox</string>
+    <string name="has_to_first">home page!</string>
+    <string name="has_to_last">fin de page!</string>
+    <string name="unstall">desinstaller</string>
+    <string name="to_desktp">deplacer vers bureau</string>
+    <string name="cancel_to_desktp">desinstaller de bureau</string>
+    <string name="desktop_noapp_prompt">S\'il vous plaît choisir l\'application à partir du gestionnaire d\'application est affiché ici</string>
+    <string name="mac">MAC:</string>
+    <string name="hardware_name">materiel:</string>
+    <string name="version">Version:</string>
+    <string name="message">User message:</string>
+    <string name="welcome_banner">Release • moved • healthy • happy</string>
+    <string name="soft_version">version logiciel:</string>
+    <string name="broswer">naviger</string>
+    <string name="file">Explorateur de fichiers</string>
+    <string name="video">video player</string>
+    <string name="settings">parametre system</string>
+    <string name="gallery">my photo gallery</string>
+    <string name="music">my music</string>
+    <string name="download">telechargement</string>
+    <string name="appstore">Google app store</string>
+    <string name="app_not_found">erreur application non installer</string>
+    <string name="title_alert">message alerte</string>
+    <string name="ok">OK</string>
+    <string name="cancel">annuler</string>
+    <string name="jiong">bureau complete stockage max 12 app!</string>
+    <string name="prompt">Prompt</string>
+    <string name="update">mettre a jour</string>
+    <string name="index_ad">感謝您選用MoonBox產品。 釋放 感動 健康 快樂</string>
+    <string name="startdownload">debut telechargement fichier apk </string>
+    <string name="media_center">Media Center</string>
+    <string name="upgrade">mise a niveau materiel</string>
+    <string name="box_setting">parametre box</string>
+    <string name="google_play">Google Play</string>
+    <string name="france">français</string>
+    <string name="pree_any_key_to_return">Press any key to return</string>
+
+    <string name="disclaimer">Désistement</string>
+    <string name="disclaimer_content">\u3000\u3000Moonbox est un périphérique réseau lecteur multimédia haute définition basé sur OS Android (ci-après dénommé "Le dispositif"), qui est libéré par la Sagesse international de Hong Kong Co., Ltd (ci-après dénommée «La Société»).\n
+			\u3000\u3000Afin d\'obtenir l\'aide de l\'expérience par le dispositif, vous pouvez installer l\'application (s) tiers de vos propres ressources, telles que la société de Internet.la société  n\'est pas responsable des applications tierces liées à l\'exactitude, la précision, et la légitimité du contenu. Les utilisateurs doivent respecter les lois, règlements, règles ou codes applicables reconnus dans leurs juridictions locales respectives. Ne pas installer et utiliser des contenus illicites tels que la pornographie, la violence, et de l\'application contenant le contenu du droit d\'auteur.\n 
+			\u3000\u3000Merci d\'avoir acheté MoonBox.Please envoyer un courriel (service@moonbox.hk) si vous avez des suggestions, il serait très utile pour améliorer le dispositif.</string>
+    <string name="agree_disclaimer">D\'accord</string>
+    <string name="read_disclaimer">D\'accord</string>
+    <string name="save_mac_fail">Save mac fial!</string>
+	<string name="save_mac_success">Save mac success!</string>
+	<string name="player_null">Please install the player, otherwise unable to play</string>
+	<string name="network_not_connect">Network not connect</string>
+	<string name="ready_play">Ready play</string>
+	<string name="appstore2">App Store</string>
+		<string name="model">Model :</string>
+    <string name="modelver">Build :</string>
+    <string name="kernelver">Kernel :</string>
+    <string name="testing">Check up :</string>
+    <string name="test_start">Start</string>
+    <string name="test_ing">Testing </string>
+    <string name="test_sort">Icon sort</string>
+    <string name="test_sort_info"></string>
+     <string name="get_banner_error">Failed to load</string>
+</resources>

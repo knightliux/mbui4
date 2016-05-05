@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg_3"
+  
+    android:orientation="vertical" >
+ <!--  android:sharedUserId="android.uid.system" -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/status_bar_bg" 
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <ImageView 
+            android:layout_width="130dp"
+            android:layout_height="36dp"
+            android:background="@drawable/logo"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="150dp"
+            android:layout_centerVertical="true"
+            />
+        
+        <TextView
+            android:id="@id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_marginLeft="320dp"
+            android:layout_centerVertical="true"
+            >
+        </TextView>
+        
+       <com.bestbaan.moonbox.view.StatusBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:id="@id/statusbar"
+            /> 
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <GridView
+            android:id="@id/welcome_country_grid"
+            android:layout_width="900dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:horizontalSpacing="60dp"
+            android:listSelector="@drawable/app_select_bg"
+            android:verticalSpacing="10dp" >
+        </GridView>
+    </RelativeLayout>
+
+</LinearLayout>

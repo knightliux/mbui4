@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_white">#f2f2f2</color>
+    <color name="text_black">#222222</color>
+     <color name="transparent">#00000000</color>
+     <color name="ping_success">#02FF2E</color>
+     <color name="ping_fail">#C11E1F</color>
+     <color name="text_red">#FF0000</color>
+     <color name="test_ing">#666666</color>
+</resources>
