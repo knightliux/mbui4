@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.bestbaan.moonbox.model.LifeModel;
 import com.bestbaan.moonbox.model.PingInfo;
+import com.bestbaan.moonbox.util.CustomAppInfo;
 import com.bestbaan.moonbox.util.MACUtils;
 
 public class Configs {
@@ -14,7 +15,7 @@ public class Configs {
 	public static final int BOX_TYPE_M2S = 0;
 	public static final int BOX_TYPE_M3 = 1;// M3
 	public static final int BOX_TYPE_M4 = 2;// S805
-
+    public static CustomAppInfo nowAppinfo=null;
 	public static final int getType() {
 		return BOX_TYPE_M4;
 	}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#51000000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/appinfo_bg"
+        android:orientation="vertical"
+        android:padding="15dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/appinfo_appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="28dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/Appinfo_text_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VerCode : " />
+
+            <TextView
+                android:id="@+id/appinfo_vercode"
+                style="@style/Appinfo_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/Appinfo_text_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VerName : " />
+
+            <TextView
+                android:id="@+id/appinfo_vername"
+                style="@style/Appinfo_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/Appinfo_text_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FirstTime : " />
+
+            <TextView
+                android:id="@+id/appinfo_ftime"
+                style="@style/Appinfo_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/Appinfo_text_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UpdataTime : " />
+
+            <TextView
+                android:id="@+id/appinfo_ltime"
+                style="@style/Appinfo_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -12,6 +12,7 @@ public class DbUtil extends SQLiteOpenHelper {
 	public boolean debug = false;
 	private static final String name = "MBUI4"; // 数据库名称
 	private static final int version = 1; // 数据库版本
+	private static final String LIFE_JSONKEY = "lifejson"; // 数据库版本
 
 
 	public DbUtil(Context context) {
@@ -29,9 +30,10 @@ public class DbUtil extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 
 		db.execSQL("CREATE TABLE IF NOT EXISTS index_app_info (id integer primary key autoincrement,pkgname varchar(255) UNIQUE,orderid integer(11))");
+		db.execSQL("CREATE TABLE IF NOT EXISTS json_cache (id integer primary key autoincrement,jsonkey varchar(255) UNIQUE,jsonstr TEXT)");
 	
 	}
-
+   
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
 		// TODO Auto-generated method stub
@@ -47,6 +49,38 @@ public class DbUtil extends SQLiteOpenHelper {
 			// TODO: handle exception
 		}
 	}
+	public void SaveLifeJson(String jsonstr){
+		try {
+			db=getReadableDatabase();
+			db.execSQL("REPLACE INTO json_cache(jsonkey,jsonstr) values(?,?)",new Object[]{LIFE_JSONKEY,jsonstr});
+			db.close();
+	
+    	}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	public String GetLifeJson(){
+    	try {
+			db=getReadableDatabase();
+			Cursor Row =db.rawQuery("Select jsonstr from json_cache where jsonkey=?",new String[]{LIFE_JSONKEY});
+			if(Row.moveToFirst()){
+				String jsonstr=Row.getString(0);
+				
+				if(debug){
+					Log.d("Row0","Row0:"+Row.getString(0));
+				
+				}
+				return jsonstr;
+			}
+			db.close();
+		
+    	}catch (Exception e) {
+			// TODO: handle exception
+    		return null;
+		}
+    	return null;
+    }
+	
     public void SaveAppIndex(String pkgname,int index){
     	try {
 			db=getReadableDatabase();

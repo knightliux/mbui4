@@ -248,16 +248,18 @@ public class PageIndexView extends LinearLayout {
 			log.i("ad key");
 			if (keyCode == KeyEvent.KEYCODE_DPAD_UP
 					&& event.getAction() == KeyEvent.ACTION_DOWN) {
-				fillGallery(true);
-				return true;
+				//fillGallery(true);
+				return false;
 			}
 			if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN
 					&& event.getAction() == KeyEvent.ACTION_DOWN) {
 				fillGallery(false);
-				return true;
+				return false;
 			}
 			if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT
 					&& event.getAction() == KeyEvent.ACTION_DOWN) {
+				mGridApp.requestFocus();
+				mGridApp.setSelection(0);
 				return true;
 				// 翻到下一页
 				// return false;

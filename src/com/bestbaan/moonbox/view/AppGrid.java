@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -29,8 +30,11 @@ import com.bestbaan.moonbox.util.AppUtils;
 import com.bestbaan.moonbox.util.CustomAppInfo;
 import com.bestbaan.moonbox.util.Logger;
 import com.bestbaan.moonbox.util.AppUtils.AppInfo;
+import com.moon.android.iptv.AppInfoActicity;
 import com.moon.android.iptv.Configs;
 import com.moon.android.iptv.Constant;
+import com.moon.android.iptv.LifeWebActivity;
+import com.moon.android.iptv.StartAppActivity;
 import com.moonbox.android.iptv.R;
 
 @SuppressLint("NewApi")
@@ -61,6 +65,7 @@ public class AppGrid extends LinearLayout implements OnKeyListener{
 		mPageView = (PageIndicatorView) view.findViewById(R.id.ad_page_num);
 		mGridApps.setOnItemClickListener(mGridItemClickListener);
 		mGridApps.setOnItemSelectedListener(mSelectListener);
+		mGridApps.setOnItemLongClickListener(mGridItemLongClickListener);
 		mArrowLeft.setOnClickListener(mArrowClickListener);
 		mArrowRight.setOnClickListener(mArrowClickListener);
 		mGridApps.setOnKeyListener(this);
@@ -70,7 +75,21 @@ public class AppGrid extends LinearLayout implements OnKeyListener{
 		setAdapter(mListAppInfo);
 		regApkOp();
 	}
-	
+	OnItemLongClickListener mGridItemLongClickListener=new OnItemLongClickListener(){
+
+		@Override
+		public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+				int pos, long arg3) {
+			// TODO Auto-generated method stub
+			Configs.nowAppinfo=mListAppInfo.get(getClickPosition(pos));
+			Intent intent = new Intent();
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.setClass(mContext, AppInfoActicity.class);
+			mContext.startActivity(intent);
+			return true;
+		}
+		
+	};
 	private void getApps() {
 		mListAppInfo = new ArrayList<CustomAppInfo>();
 	

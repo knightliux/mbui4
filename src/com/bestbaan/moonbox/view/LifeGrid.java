@@ -42,6 +42,7 @@ import com.bestbaan.moonbox.model.LifeMenu;
 import com.bestbaan.moonbox.model.LifeModel;
 import com.bestbaan.moonbox.util.AppUtils;
 import com.bestbaan.moonbox.util.CustomAppInfo;
+import com.bestbaan.moonbox.util.DbUtil;
 import com.bestbaan.moonbox.util.Logger;
 import com.bestbaan.moonbox.util.MACUtils;
 import com.forcetech.android.ForceTV;
@@ -80,6 +81,7 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 	public static final int ACTION_UPDATE_DESKTOP = 0x1000002;
 	private AnimationDrawable anim_selector = null;
 	private LifeChannelAdapter mAppsAdapter;
+	private DbUtil db;
 
 	public LifeGrid(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -101,6 +103,7 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 		mGridApps.setOnItemClickListener(mGridItemClicklistener);
 		// mAppDAOI = new AppDAO(context);
 		mListAppInfo = new ArrayList<LifeModel>();
+		db = new DbUtil(context);
 		// for (int i = 0; i < 50; i++) {
 		// mListAppInfo.add(new LifeModel("" + i, null, null, null, null));
 		// }
@@ -122,7 +125,8 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 				long arg3) {
 			// TODO Auto-generated method stub
-			LifeModel item = mListAppInfo.get(position+(mCurrentPage-1)*(mRows*mColumnNum));
+			LifeModel item = mListAppInfo.get(position + (mCurrentPage - 1)
+					* (mRows * mColumnNum));
 
 			String type = item.getType();
 			if (type.equals("0")) {
@@ -160,16 +164,15 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 			}
 			if (type.equals("2")) {
 				try {
-				    String Url=item.getUrl();
-				    Log.d("listUrl",Url);
-				    String ChannelId="",Streamip="";
-				    if(Url.indexOf("force") == 0){
-				    	String[] ForceArray=Url.split("/");
-				    	ChannelId=ForceArray[3];
-				    	Streamip=ForceArray[2];
-				    }
-					ComponentName componetName = new ComponentName(
-							mContext,
+					String Url = item.getUrl();
+					Log.d("listUrl", Url);
+					String ChannelId = "", Streamip = "";
+					if (Url.indexOf("force") == 0) {
+						String[] ForceArray = Url.split("/");
+						ChannelId = ForceArray[3];
+						Streamip = ForceArray[2];
+					}
+					ComponentName componetName = new ComponentName(mContext,
 							com.moon.android.moonplayer.VodPlayerActivity.class);
 					Intent intent = new Intent();
 					intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -184,7 +187,7 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 					// force://vodlist.btvgod.com:9906/56e630380007ff5c04651b0c5ecd1a0b
 					list.add(v);
 					intent.putExtra("videolist", (Serializable) list);
-					//intent.setClass(mContext, VodPlayerActivity.class);
+					// intent.setClass(mContext, VodPlayerActivity.class);
 					intent.setComponent(componetName);
 					mContext.startActivity(intent);
 				} catch (Exception e) {
@@ -199,7 +202,7 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 		@Override
 		public void onFocusChange(View arg0, boolean arg1) {
 			// TODO Auto-generated method stub
-		//	Log.d("focus", arg1 + "");
+			// Log.d("focus", arg1 + "");
 
 			mAppsAdapter.notifyFocusChanged(arg1);
 
@@ -210,36 +213,54 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 	@SuppressWarnings("unchecked")
 	private void initList() {
 		// TODO Auto-generated method stub
-		FinalHttp fh = new FinalHttp();
+		String jsondb = db.GetLifeJson();
+		if (jsondb == null) {
 
-		AjaxParams params = new AjaxParams();
-		params.put("mac", MACUtils.getMac());
-//		Log.d("life", Configs.GetLifeList());
-		fh.post(Configs.GetLifeList(), params, new AjaxCallBack() {
+			FinalHttp fh = new FinalHttp();
 
-			@Override
-			public void onFailure(Throwable t, int errorNo, String strMsg) {
-				// TODO Auto-generated method stub
-//				Log.d("lifelist", "error");
-			}
+			AjaxParams params = new AjaxParams();
+			params.put("mac", MACUtils.getMac());
+			// Log.d("life", Configs.GetLifeList());
+			fh.post(Configs.GetLifeList(), params, new AjaxCallBack() {
 
-			@Override
-			public void onSuccess(Object t) {
-				// TODO Auto-generated method stub
-//				Log.d("res",t.toString());
-				Gson gson = new Gson();
-				try {
-					mListAppInfo = gson.fromJson(t.toString(),
-							new TypeToken<List<LifeModel>>() {
-							}.getType());
-				} catch (Exception e) {
-					// TODO: handle exception
+				@Override
+				public void onFailure(Throwable t, int errorNo, String strMsg) {
+					// TODO Auto-generated method stub
+					// Log.d("lifelist", "error");
 				}
-				setAdapter(mListAppInfo);
-				//
-			}
 
-		});
+				@Override
+				public void onSuccess(Object t) {
+					// TODO Auto-generated method stub
+					// Log.d("res",t.toString());
+					Gson gson = new Gson();
+					mListAppInfo = null;
+					try {
+						mListAppInfo = gson.fromJson(t.toString(),
+								new TypeToken<List<LifeModel>>() {
+								}.getType());
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					if (mListAppInfo != null) {
+						db.SaveLifeJson(t.toString());
+					}
+					setAdapter(mListAppInfo);
+					//
+				}
+
+			});
+		}else{
+			Gson gson = new Gson();
+			try {
+				mListAppInfo = gson.fromJson(jsondb,
+						new TypeToken<List<LifeModel>>() {
+						}.getType());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			setAdapter(mListAppInfo);
+		}
 	}
 
 	private OnItemSelectedListener mOnItemSelectedListener = new OnItemSelectedListener() {

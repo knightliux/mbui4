@@ -364,10 +364,7 @@ public class AppUtils {
 					customAppInfo.versionCode = packageInfo.versionCode;
 					customAppInfo.icon = packageInfo.applicationInfo.loadIcon(manager);
 					customAppInfo.title = packageInfo.applicationInfo.loadLabel(manager).toString();
-					//for(int j=0;j<customAppInfoList.size();j++){
-						//Log.d("3app",pkgName+"---"+customAppInfoList.get(j).pkgName);
-						
-				//	}
+					
 				} catch (NameNotFoundException e) {
 					e.printStackTrace();
 				}
@@ -377,10 +374,10 @@ public class AppUtils {
 
 			AppTimerComparator2 comparator = new AppTimerComparator2();
 			Collections.sort(customAppInfoList, comparator);
-//			for(int i=0;i<customAppInfoList.size();i++){
-//				Log.d("list",customAppInfoList.get(i).pkgName+"---"+customAppInfoList.get(i).title+"---"+customAppInfoList.get(i).activityInfoName);
-//				
-//			}
+			for(int i=0;i<customAppInfoList.size();i++){
+				Log.d("list",customAppInfoList.get(i).pkgName+"---"+customAppInfoList.get(i).title+"---"+customAppInfoList.get(i).versionName);
+				
+			}
 		}
 		return customAppInfoList;
 	}

@@ -8,5 +8,16 @@
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
     </style>
-
+     <style name="Appinfo_text_left" >
+        <!-- API 14 theme customizations can go here. -->
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">#999</item>  
+        <item name="android:layout_width">170dp</item>
+        <item name="android:gravity">right</item>  
+    </style>
+     <style name="Appinfo_text" >
+        <!-- API 14 theme customizations can go here. -->
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">#999</item>  
+    </style>
 </resources>
