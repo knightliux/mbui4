@@ -172,7 +172,13 @@ public class AppGrid extends LinearLayout implements OnKeyListener{
 			int posInAllApps = getClickPosition(position);
 			CustomAppInfo appInfo = mListAppInfo.get(posInAllApps);
 			logger.i("app clicked : "+appInfo);
-			mContext.startActivity(appInfo.intent);
+			try {
+				mContext.startActivity(appInfo.intent);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		
 		}
 	};
 	

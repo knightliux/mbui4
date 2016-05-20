@@ -82,6 +82,7 @@ import com.moonX.util.ShellUtils.CommandResult;
 import com.moonbox.android.iptv.R;
 
 
+
 public class MainActivity extends FragmentActivity{
 	
 	private LinearLayout mNavigationContainer;
@@ -115,9 +116,10 @@ public class MainActivity extends FragmentActivity{
 		checkUserMsg();
 		regBroadCast();
 		regRegionLimitBroad();
+		
 		Intent intent = new Intent(this,MsgService.class);
 		startService(intent);
-		  
+//		new Auth(MainActivity.this,"ddd");
         new Thread(){
 
 			@Override

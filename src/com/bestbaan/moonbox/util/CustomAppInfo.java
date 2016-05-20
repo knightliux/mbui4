@@ -19,6 +19,7 @@ package com.bestbaan.moonbox.util;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 
 /**
  * Represents a launchable application. An application is made of a name (or
@@ -72,8 +73,12 @@ public class CustomAppInfo {
 		this.isSystemApp = isSystemApp;
 		this.pkgName=pkg;
 		ComponentName c = new ComponentName(pkg, actvityName);
-
-		setActivity(c, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        if(pkg.equals("") || actvityName.equals("")){
+        	this.intent=new Intent(Settings.ACTION_WIFI_SETTINGS);
+        }else{
+        	setActivity(c, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        }
+		
 	}
 
 	/**

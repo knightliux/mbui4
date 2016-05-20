@@ -95,7 +95,7 @@ public class Constant {
 					SYS_PIC, SYS_PIC_AC, getDrawable(context,
 							R.drawable.app_pic), true));
 		}
-
+		
 		String musicPkg = null;
 		String musicPkgAc = null;
 
@@ -117,14 +117,16 @@ public class Constant {
 			list.add(new CustomAppInfo(getString(context, R.string.broswer),
 					SYS_BROWSER, SYS_BROWSER_AC, getDrawable(context,
 							R.drawable.app_browser), true));
-		}
-
+		} 
+		list.add(new CustomAppInfo("Wi-Fi",
+				"com.android.settings.wifi", "com.android.settings.wifi.WifiSetupActivity", getDrawable(context,
+						R.drawable.wifi), true));
 		if (AppUtils.isAppInstalled(context, SYS_DOWNLOAD)) {
 			list.add(new CustomAppInfo(getString(context, R.string.download),
 					SYS_DOWNLOAD, SYS_DOWNLOAD_AC, getDrawable(context,
 							R.drawable.app_download), true));
 		}
-
+    
 		if (AppUtils.isAppInstalled(context, APP_STORE)) {
 			list.add(new CustomAppInfo(
 					getString(context, R.string.google_play), APP_STORE,

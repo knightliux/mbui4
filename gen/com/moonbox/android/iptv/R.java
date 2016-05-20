@@ -305,6 +305,7 @@ containing a value of this type.
         public static final int weather_load6=0x7f0200e3;
         public static final int weather_load7=0x7f0200e4;
         public static final int weather_load8=0x7f0200e5;
+        public static final int wifi=0x7f0200e6;
     }
     public static final class id {
         public static final int ad_arrow_left=0x7f09003b;

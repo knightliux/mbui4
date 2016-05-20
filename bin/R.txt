@@ -266,6 +266,7 @@ int drawable weather_load5 0x7f0200e2
 int drawable weather_load6 0x7f0200e3
 int drawable weather_load7 0x7f0200e4
 int drawable weather_load8 0x7f0200e5
+int drawable wifi 0x7f0200e6
 int id ad_arrow_left 0x7f09003b
 int id ad_arrow_right 0x7f09003d
 int id ad_container 0x7f090022
