@@ -41,7 +41,7 @@ import com.moonbox.android.iptv.R;
 public class AppGrid extends LinearLayout implements OnKeyListener{
 	
 	private Logger logger=Logger.getInstance();
-	
+	  
 	private LinearLayout mArrowLeft;
 	private LinearLayout mArrowRight;
 	private GridView mGridApps;
