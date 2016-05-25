@@ -76,7 +76,7 @@ public class CustomAppInfo {
         if(pkg.equals("") || actvityName.equals("")){
         	this.intent=new Intent(Settings.ACTION_WIFI_SETTINGS);
         }else{
-        	setActivity(c, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        	setActivity(c, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED,actvityName);
         }
 		
 	}
@@ -89,14 +89,24 @@ public class CustomAppInfo {
 	 *            the class name of the component representing the intent
 	 * @param launchFlags
 	 *            the launch flags
+	 * @param actvityName 
 	 */
-	final void setActivity(ComponentName className, int launchFlags) {
+	final void setActivity(ComponentName className, int launchFlags, String actvityName) {
 		intent = new Intent(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_LAUNCHER);
+		if(actvityName=="com.android.settings.wifi.WifiSettings" || actvityName.equals("com.android.settings.wifi.WifiSettings")){
+			intent.putExtra("goToWifiPage",1);
+		}
 		intent.setComponent(className);
 		intent.setFlags(launchFlags);
 	}
-
+	final void setActivity(ComponentName className, int launchFlags) {
+		intent = new Intent(Intent.ACTION_MAIN);
+		intent.addCategory(Intent.CATEGORY_LAUNCHER);
+		
+		intent.setComponent(className);
+		intent.setFlags(launchFlags);
+	}
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {

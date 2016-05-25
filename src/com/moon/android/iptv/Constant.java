@@ -119,7 +119,7 @@ public class Constant {
 							R.drawable.app_browser), true));
 		} 
 		list.add(new CustomAppInfo("Wi-Fi",
-				"com.android.settings.wifi", "com.android.settings.wifi.WifiSetupActivity", getDrawable(context,
+				"com.android.settings", "com.android.settings.wifi.WifiSettings", getDrawable(context,
 						R.drawable.wifi), true));
 		if (AppUtils.isAppInstalled(context, SYS_DOWNLOAD)) {
 			list.add(new CustomAppInfo(getString(context, R.string.download),
