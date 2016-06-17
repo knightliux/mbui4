@@ -1,15 +1,18 @@
 # cache for current jar dependency. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
+1462954359705 160443 a85588bec3e2c4584d593d3f15df1677321bca72 D:\Android_launch\App_Rock\libs\universal-image-loader-1.9.3.jar
 1458616475622 160443 a85588bec3e2c4584d593d3f15df1677321bca72 D:\Android_launch\MoonPlayer_demo\libs\universal-image-loader-1.9.3.jar
 1462411147575 160443 a85588bec3e2c4584d593d3f15df1677321bca72 D:\Android_launch\mbui4\libs\universal-image-loader-1.9.3.jar
 1462411147491 340028 0ea7d5f5d4c88d69e73a7e5fec1a3942649d510d D:\Android_launch\mbui4\libs\dom4j-2.0.0-ALPHA-2.jar
 1458616475614 340028 0ea7d5f5d4c88d69e73a7e5fec1a3942649d510d D:\Android_launch\MoonPlayer_demo\libs\dom4j-2.0.0-ALPHA-2.jar
 1458616475619 226915 9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9 D:\Android_launch\MoonPlayer_demo\libs\jaxen-1.1.1.jar
 1462411147572 226915 9f5d3c5974dbe5cf69c2c2ec7d8a4eb6e0fce7f9 D:\Android_launch\mbui4\libs\jaxen-1.1.1.jar
-1458616475493 155887 89729e3bc7f76890363b10e1e0dc5e57964c7807 D:\Android_launch\MoonPlayer_demo\libs\afinal_0.5_bin.jar
-1463018716691 155887 89729e3bc7f76890363b10e1e0dc5e57964c7807 D:\Android_launch\mbui4\libs\afinal_0.5_bin.jar
+1462954359697 156413 73b6f889ce9eaeb5acde3468f2a54051758eb6b7 D:\Android_launch\MoonPlayer_demo\libs\afinal.jar
+1462954359697 156413 73b6f889ce9eaeb5acde3468f2a54051758eb6b7 D:\Android_launch\App_Rock\libs\afinal.jar
+1462411147489 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 D:\Android_launch\mbui4\libs\gson-2.2.4.jar
+1462954359695 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 D:\Android_launch\App_Rock\libs\gson-2.2.4.jar
+1458616475611 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 D:\Android_launch\MoonPlayer_demo\libs\gson-2.2.4.jar
+1462954359702 556198 4a6be13368bb64c5a0b0460632d228a1a915f58f D:\Android_launch\App_Rock\libs\android-support-v4.jar
 1462411147570 556198 4a6be13368bb64c5a0b0460632d228a1a915f58f D:\Android_launch\mbui4\libs\android-support-v4.jar
 1458616475617 556198 4a6be13368bb64c5a0b0460632d228a1a915f58f D:\Android_launch\MoonPlayer_demo\libs\android-support-v4.jar
-1462411147489 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 D:\Android_launch\mbui4\libs\gson-2.2.4.jar
-1458616475611 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 D:\Android_launch\MoonPlayer_demo\libs\gson-2.2.4.jar

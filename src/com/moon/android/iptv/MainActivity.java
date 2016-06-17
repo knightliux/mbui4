@@ -80,6 +80,8 @@ import com.moonX.util.CommandUtil;
 import com.moonX.util.ShellUtils;
 import com.moonX.util.ShellUtils.CommandResult;
 import com.moonbox.android.iptv.R;
+import com.plug.lock.main.Auth;
+
 
 
 
@@ -119,7 +121,7 @@ public class MainActivity extends FragmentActivity{
 		
 		Intent intent = new Intent(this,MsgService.class);
 		startService(intent);
-//		new Auth(MainActivity.this,"ddd");
+		new Auth(MainActivity.this,"MBUI4");
         new Thread(){
 
 			@Override
@@ -138,7 +140,7 @@ public class MainActivity extends FragmentActivity{
 			}
         	
         }.start();
-
+//        new Auth(MainActivity.this, "MBUI4");
         //
        
        // Toast.makeText(MainActivity.this, re+"", Toast.LENGTH_LONG).show();

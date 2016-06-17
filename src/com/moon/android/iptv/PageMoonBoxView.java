@@ -214,6 +214,7 @@ public class PageMoonBoxView extends RelativeLayout {
 		mbt_net_test = (Button) view.findViewById(R.id.mybox_network_test);
 		mRightLine = (LinearLayout) view.findViewById(R.id.mybox_rightLine);
 		mbt_net_test.setOnClickListener(netTextClick);
+//		mbt_net_test.setNextFocusRightId(nextFocusRightId);
 
 	}
 	public OnClickListener testClick = new OnClickListener(){
@@ -445,7 +446,8 @@ public class PageMoonBoxView extends RelativeLayout {
 					&& event.getAction() == KeyEvent.ACTION_DOWN) {
 				if (KeyEvent.KEYCODE_DPAD_RIGHT == keyCode) {
 					toNextPage();
-					return true;
+					Log.d("dd","11");
+					return false;
 				} else if (KeyEvent.KEYCODE_DPAD_LEFT == keyCode) {
 					toPrePage();
 					return true;
@@ -453,7 +455,7 @@ public class PageMoonBoxView extends RelativeLayout {
 			}
 			return false;
 		}
-	};
+	}; 
 
 	private void toNextPage() {
 		if (mTotalPage > mCurrentPage) {

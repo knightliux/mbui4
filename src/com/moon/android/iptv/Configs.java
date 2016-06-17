@@ -250,7 +250,7 @@ public class Configs {
 		list.add("com.example.Upgrade");
 		return list;
 	}
-
+ 
 	private String getServer() {
 		return "http://stb1.quliebiao.com:9011/";
 	}

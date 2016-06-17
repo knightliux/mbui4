@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moonbox.android.iptv"
- 
-    android:versionCode="20160505"
-    android:versionName="20160505" >
+    android:sharedUserId="android.uid.system"
+    android:versionCode="20160617"
+    android:versionName="20160617" >
 
     <!-- android:sharedUserId="android.uid.system" -->
     <!-- android:versionName="20140924" -->
@@ -72,7 +72,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
         </activity>
         <activity android:name="com.android.settings.wifi.WifiSetupActivity" >
-        
         </activity>
         <activity
             android:name="com.moon.android.iptv.LifeWebActivity"
