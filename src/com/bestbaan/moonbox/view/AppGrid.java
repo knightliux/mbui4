@@ -93,7 +93,7 @@ public class AppGrid extends LinearLayout implements OnKeyListener{
 	private void getApps() {
 		mListAppInfo = new ArrayList<CustomAppInfo>();
 	
-			mListAppInfo.addAll(Constant.getSysApp(mContext));
+		mListAppInfo.addAll(Constant.getSysApp(mContext));
 //		List<CustomAppInfo> userInstall  = AppUtils.loadApplications(mContext,Configs.showSystemApp());
 		List<CustomAppInfo> userInstall  = AppUtils.loadApplications(mContext,true);
 		mListAppInfo.addAll(userInstall);

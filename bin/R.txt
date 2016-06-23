@@ -531,6 +531,7 @@ int string jiong 0x7f080034
 int string kbs 0x7f080006
 int string kernelver 0x7f08004b
 int string korea 0x7f080017
+int string life_info 0x7f080052
 int string load_prompt 0x7f08000f
 int string mac 0x7f080023
 int string media_center 0x7f080038
@@ -567,7 +568,7 @@ int string to_desktp 0x7f080020
 int string unstall 0x7f08001f
 int string update 0x7f08000c
 int string upgrade 0x7f080039
-int string ver 0x7f080052
+int string ver 0x7f080053
 int string version 0x7f080025
 int string video 0x7f08002b
 int string video_pro 0x7f080010

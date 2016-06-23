@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moonbox.android.iptv"
-    android:sharedUserId="android.uid.system"
+ 
     android:versionCode="20160617"
-    android:versionName="20160617" >
-
+    android:versionName="V46.6.20" >
+ 
     <!-- android:sharedUserId="android.uid.system" -->
     <!-- android:versionName="20140924" -->
     <uses-sdk

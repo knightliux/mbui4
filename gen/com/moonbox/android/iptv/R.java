@@ -583,6 +583,7 @@ containing a value of this type.
         public static final int kbs=0x7f080006;
         public static final int kernelver=0x7f08004b;
         public static final int korea=0x7f080017;
+        public static final int life_info=0x7f080052;
         public static final int load_prompt=0x7f08000f;
         public static final int mac=0x7f080023;
         public static final int media_center=0x7f080038;
@@ -622,7 +623,7 @@ containing a value of this type.
         public static final int unstall=0x7f08001f;
         public static final int update=0x7f08000c;
         public static final int upgrade=0x7f080039;
-        public static final int ver=0x7f080052;
+        public static final int ver=0x7f080053;
         public static final int version=0x7f080025;
         public static final int video=0x7f08002b;
         public static final int video_pro=0x7f080010;

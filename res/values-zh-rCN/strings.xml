@@ -74,4 +74,5 @@
     <string name="test_sort">桌面换位</string>
     <string name="test_sort_info">（选中您想要换位的图标，移动光标到置换的位置点击OK即可）</string>
      <string name="get_banner_error">获取图片失败</string>
+     <string name="life_info">大屏幕购物新体验！所售商品均经过MoonBox平台严格审核，请广大朋友放心订购。</string>
 </resources>

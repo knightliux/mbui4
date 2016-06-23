@@ -118,7 +118,7 @@ public class PageMoonBoxView extends RelativeLayout {
 			}                 
 			 
 		 },1000*60*GetIP_MINUTE,1000*60*GetIP_MINUTE);
-	}
+	} 
 
 	private void initNewData() {
 		// TODO Auto-generated method stub

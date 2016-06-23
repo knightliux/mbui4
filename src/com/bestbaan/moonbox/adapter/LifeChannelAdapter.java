@@ -53,7 +53,7 @@ public class LifeChannelAdapter extends BaseAdapter<LifeModel> {
 	private void initoptions() {
 		// TODO Auto-generated method stub
 		options=new DisplayImageOptions.Builder()  
-
+  
         .cacheInMemory(true)  
         .cacheOnDisk(true)  
         .bitmapConfig(Bitmap.Config.RGB_565)  
@@ -94,9 +94,9 @@ public class LifeChannelAdapter extends BaseAdapter<LifeModel> {
 //		holder.appName.setText(appInfo.getAppName());
 //		holder.bg_img.setBackground(mContext.getResources().getDrawable(R.drawable.ad_default));
 	
-		if(initView){
+		if(initView){ 
 			holder.Name.setText(item.getName());
-			ImageLoader.getInstance().displayImage(item.getImg(), holder.bg_img); 
+			ImageLoader.getInstance().displayImage(item.getImg(), holder.bg_img,options); 
 		}
 		 
 //		logger.i(currentLongClickItem+"  "+position+"  "+canShake);

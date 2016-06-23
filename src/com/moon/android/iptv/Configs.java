@@ -62,7 +62,7 @@ public class Configs {
 
 	public static List<PingInfo> getDefaultPing() {
 		List<PingInfo> mPingList = new ArrayList<PingInfo>();
-		mPingList.add(new PingInfo("www.google.com", "* 正在测试网络连接", "* 网络连接正常",
+		mPingList.add(new PingInfo("www.yahoo.com", "* 正在测试网络连接", "* 网络连接正常",
 				"* 网络连接异常"));
 		mPingList.add(new PingInfo("vodhk.videohk.video", "* 正在测试与服务器一通信",
 				"* 与服务器一通信正常", "* 与服务器一通信异常"));

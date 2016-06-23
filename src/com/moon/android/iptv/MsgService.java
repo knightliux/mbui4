@@ -242,7 +242,7 @@ public class MsgService extends Service {
 	public static UpdateData checkUpate(Context context) {
 		try {
 			String requestUrl = new Configs().new ServerInterface().UPGRADE_LAUNCHER+
-					"&version=" + VersionUtil.getVersionName(context) + "&mac="
+					"&version=" + VersionUtil.getVersionCode(context) + "&mac="
 					+ MACUtils.getMac();
 			String requestResult = RequestUtil.getInstance().request(requestUrl);
 			if (isBlank(requestResult))
