@@ -10,7 +10,7 @@ import com.bestbaan.moonbox.util.MACUtils;
 
 public class Configs {
 
-	public static boolean DEBUG_MODE = false;
+	public static boolean DEBUG_MODE = true;
 
 	public static final int BOX_TYPE_M2S = 0;
 	public static final int BOX_TYPE_M3 = 1;// M3

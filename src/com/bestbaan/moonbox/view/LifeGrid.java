@@ -209,47 +209,49 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 		}
 
 	};
+    private void getListFromNet(){
+    	FinalHttp fh = new FinalHttp();
 
+		AjaxParams params = new AjaxParams();
+		params.put("mac", MACUtils.getMac());
+		// Log.d("life", Configs.GetLifeList());
+		fh.post(Configs.GetLifeList(), params, new AjaxCallBack() {
+
+			@Override
+			public void onFailure(Throwable t, int errorNo, String strMsg) {
+				// TODO Auto-generated method stub
+				// Log.d("lifelist", "error");
+			}
+
+			@Override
+			public void onSuccess(Object t) {
+				// TODO Auto-generated method stub
+				// Log.d("res",t.toString());
+				Gson gson = new Gson();
+				mListAppInfo = null;
+				try {
+					mListAppInfo = gson.fromJson(t.toString(),
+							new TypeToken<List<LifeModel>>() {
+							}.getType());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				if (mListAppInfo != null) {
+					db.SaveLifeJson(t.toString());
+				}
+				setAdapter(mListAppInfo);
+				//
+			}
+
+		});
+    }
 	@SuppressWarnings("unchecked")
 	private void initList() {
 		// TODO Auto-generated method stub
 		String jsondb = db.GetLifeJson();
 		if (jsondb == null) {
-
-			FinalHttp fh = new FinalHttp();
-
-			AjaxParams params = new AjaxParams();
-			params.put("mac", MACUtils.getMac());
-			// Log.d("life", Configs.GetLifeList());
-			fh.post(Configs.GetLifeList(), params, new AjaxCallBack() {
-
-				@Override
-				public void onFailure(Throwable t, int errorNo, String strMsg) {
-					// TODO Auto-generated method stub
-					// Log.d("lifelist", "error");
-				}
-
-				@Override
-				public void onSuccess(Object t) {
-					// TODO Auto-generated method stub
-					// Log.d("res",t.toString());
-					Gson gson = new Gson();
-					mListAppInfo = null;
-					try {
-						mListAppInfo = gson.fromJson(t.toString(),
-								new TypeToken<List<LifeModel>>() {
-								}.getType());
-					} catch (Exception e) {
-						// TODO: handle exception
-					}
-					if (mListAppInfo != null) {
-						db.SaveLifeJson(t.toString());
-					}
-					setAdapter(mListAppInfo);
-					//
-				}
-
-			});
+			getListFromNet();
+			
 		}else{
 			Gson gson = new Gson();
 			try {
@@ -261,6 +263,7 @@ public class LifeGrid extends LinearLayout implements OnKeyListener {
 			}
 			setAdapter(mListAppInfo);
 		}
+		getListFromNet();
 	}
 
 	private OnItemSelectedListener mOnItemSelectedListener = new OnItemSelectedListener() {

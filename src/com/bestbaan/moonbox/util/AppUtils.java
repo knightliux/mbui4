@@ -374,10 +374,7 @@ public class AppUtils {
 
 			AppTimerComparator2 comparator = new AppTimerComparator2();
 			Collections.sort(customAppInfoList, comparator);
-			for(int i=0;i<customAppInfoList.size();i++){
-				Log.d("list",customAppInfoList.get(i).pkgName+"---"+customAppInfoList.get(i).title+"---"+customAppInfoList.get(i).versionName);
-				
-			}
+			
 		}
 		return customAppInfoList;
 	}

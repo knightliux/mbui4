@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.TextView;
 
 public class AppInfoActicity extends Activity {
@@ -26,7 +27,7 @@ public class AppInfoActicity extends Activity {
 		
 		init();
 	}
-
+    
 	private void init() {
 		// TODO Auto-generated method stub
 		if(Configs.nowAppinfo!=null){
@@ -60,4 +61,17 @@ public class AppInfoActicity extends Activity {
 		mtv_ftime=(TextView)findViewById(R.id.appinfo_ftime);
 		mtv_ltime=(TextView)findViewById(R.id.appinfo_ltime);
 	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		//if(keyCode!=)
+		Log.d("keycode",keyCode+"");
+		if(keyCode!=23){
+			finish();
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+    
 }
