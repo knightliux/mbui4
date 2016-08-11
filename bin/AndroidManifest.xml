@@ -3,7 +3,7 @@
     package="com.moonbox.android.iptv"
     android:sharedUserId="android.uid.system"
     android:versionCode="20160617"
-    android:versionName="V46.6.21" >
+    android:versionName="V401606002" >
  
     <!-- android:sharedUserId="android.uid.system" -->
     <!-- android:versionName="20140924" -->
