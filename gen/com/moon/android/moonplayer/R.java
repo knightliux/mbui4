@@ -15,12 +15,14 @@ public final class R {
 		public static final int background = 0x7f05000c;
 		public static final int black = 0x7f050008;
 		public static final int black_overlay = 0x7f050009;
-		public static final int color_p_exit = 0x7f050015;
+		public static final int blue = 0x7f050010;
+		public static final int color_p_exit = 0x7f050017;
 		public static final int red = 0x7f05000d;
 		public static final int text_black = 0x7f05000a;
 		public static final int text_white = 0x7f05000b;
 		public static final int transparent = 0x7f05000e;
 		public static final int white = 0x7f050007;
+		public static final int yellow = 0x7f05000f;
 	}
 	public static final class dimen {
 		public static final int activity_horizontal_margin = 0x7f060000;
