@@ -37,7 +37,10 @@ public class IndexAppAdapter extends BaseAdapter<AppInfo> {
 		// TODO Auto-generated constructor stub
 
 	}
-
+	 public void UpGird(List<AppInfo> list){
+	    	this.mListApps=list;
+	    	notifyDataSetChanged();
+	    }
 	public IndexAppAdapter(Context context, List<AppInfo> list, int Layout) {
 		super(context, list);
 		// TODO Auto-generated constructor stub

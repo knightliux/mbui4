@@ -72,4 +72,6 @@
     <string name="test_sort_info"></string>
      <string name="get_banner_error">Failed to load</string>
      <string name="life_info">New experience of TV shopping! All of goods are through Moonbox strict review, please be assured the purchase.</string>
+     <string name="index_add">ADD APPS</string>
+     <string name="add_over">Add success! Whether to make a desktop sort?</string>
 </resources>

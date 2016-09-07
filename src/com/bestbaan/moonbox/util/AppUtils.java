@@ -16,6 +16,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
+import com.bestbaan.moonbox.model.Model_App;
 import com.moon.android.iptv.Configs;
 
 public class AppUtils {
@@ -35,7 +36,161 @@ public class AppUtils {
 		}
 		return installed;
 	}
+	public static List<Model_App> getAllApp(Context context) {
+		PackageManager manager = context.getPackageManager();
 
+		Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+		mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+		final List<ResolveInfo> apps = manager.queryIntentActivities(
+				mainIntent, 0);
+		List<Model_App> appList = new ArrayList<Model_App>();
+		Collections.sort(apps, new ResolveInfo.DisplayNameComparator(manager));
+		if (apps != null) {
+
+			for (int i = 0, len = apps.size(); i < len; i++) {
+				Model_App nowApp = new Model_App();
+				ResolveInfo info = apps.get(i);
+				String pkgName = info.activityInfo.packageName;
+				String activityInfoName = info.activityInfo.name;
+				if (pkgName.equals(Configs.THIS_APP_PACKAGE_NAME))
+					continue;
+				PackageInfo packageInfo;
+				boolean go = true;
+				for (String pkg : Configs.getHiddenAppPkg()) {
+					if (pkgName.equals(pkg)) {
+						go = false;
+						break;
+					}
+				}
+				for (String pkg : Configs.getShopApp()) {
+					if (pkgName.equals(pkg)) {
+						go = false;
+						break;
+					}
+				}
+				
+				if (!go)
+					continue;
+				try {
+					packageInfo = manager.getPackageInfo(pkgName, 0);
+					if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) <= 0) {
+						// 第三方应用
+					} else { // 系统应用 {
+						//Log.d("app",pkgName+"---"+packageInfo.applicationInfo.loadLabel(manager).toString());
+					}
+					nowApp.firstInstallTime = packageInfo.firstInstallTime;
+					nowApp.lastUpdateTime = packageInfo.lastUpdateTime;
+					nowApp.versionName = packageInfo.versionName;
+					nowApp.versionCode = packageInfo.versionCode;
+					nowApp.icon = packageInfo.applicationInfo.loadIcon(manager);
+					nowApp.AppName = packageInfo.applicationInfo.loadLabel(manager).toString();
+					nowApp.pkgName=pkgName;
+					nowApp.activityInfoName=activityInfoName;
+				} catch (NameNotFoundException e) {
+					// TODO: handle exception
+				}
+				appList.add(nowApp);
+			}
+		}
+		return appList;
+	}
+	public static List<AppInfo> getUserApp(Context context,
+			boolean isSortByTime) {
+		DbUtil db=new DbUtil(context);
+		ArrayList<AppInfo> listReturn = new ArrayList<AppInfo>();
+		PackageManager packageManager = context.getPackageManager();
+
+		List<PackageInfo> packages = packageManager.getInstalledPackages(0);
+
+		Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+		mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+		final List<ResolveInfo> apps = packageManager.queryIntentActivities(
+				mainIntent, 0);
+		Collections.sort(apps, new ResolveInfo.DisplayNameComparator(
+				packageManager));
+
+		for (int i = 0; i < packages.size(); i++) {
+			PackageInfo packageInfo = packages.get(i);
+			String pkgName = packageInfo.packageName;
+			// if(packageInfo.packageName.equals(Configs.THIS_APP_PACKAGE_NAME))
+			// continue;
+			// 判断是否显示此应用 start
+			boolean go = false;
+//			for (String pkg : Configs.getHiddenAppPkg()) {
+//				if (packageInfo.packageName.equals(pkg)) {
+//					go = false;
+//					break;
+//				}
+//				
+//			}
+//			for (String pkg : Configs.IndexHidden()) {
+//				if (packageInfo.packageName.equals(pkg)) {
+//					go = false;
+//					break;
+//				}
+//			}
+			List<String> dbapp=db.GetAppByTag(Configs.NowTag);
+			for(String p : dbapp){
+				if(pkgName.equals(p))
+					go=true;
+			}
+			if(!go)
+				continue;
+			
+			if (!go) continue;
+			if (packageInfo.packageName.equals(Configs.THIS_APP_PACKAGE_NAME))continue;
+			// 判断是否显示此应用 end
+			AppInfo appInfo = new AppInfo();
+			
+				
+			try {
+				appInfo.appName = packageInfo.applicationInfo.loadLabel(
+						packageManager).toString();
+				appInfo.packageName = packageInfo.packageName;
+				appInfo.versionName = packageInfo.versionName;
+				appInfo.versionCode = packageInfo.versionCode;
+				appInfo.appIcon = packageInfo.applicationInfo
+						.loadIcon(packageManager);
+				appInfo.firstInstallTime = packageInfo.firstInstallTime;
+				appInfo.position=db.GetAppIndex(appInfo.packageName);
+				// Logger.getLogger().i(appInfo.appName + "  " +
+				// appInfo.firstInstallTime);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			// 系统应用
+			if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0
+					&& true) {
+			
+			} else{
+				 //listReturn.add(appInfo);
+				
+			}
+			listReturn.add(appInfo);
+				// 非系统应用
+				//listReturn.add(appInfo);
+				//listReturn.add(new AppInfo());
+		}
+//		if (isSortByTime) {
+//			AppTimerDesc comparator = new AppTimerDesc();
+//			Collections.sort(listReturn, comparator);
+//		}
+		
+		AppPos comparator_pos = new AppPos();
+		Collections.sort(listReturn, comparator_pos);
+		for(int i=0;i<listReturn.size();i++){
+			Log.d("index",listReturn.get(i).packageName+"----"+listReturn.get(i).appName+"#index:"+listReturn.get(i).position);
+		}
+		if(listReturn.size()<=0){
+			//Toast.makeText(context, context.getResources().getString(R.string.index_init), Toast.LENGTH_LONG).show();	
+		}
+		
+		
+		return listReturn;
+	}
 	/**
 	 * @param context
 	 * @param deskAppInfoList desk appList in database
@@ -145,81 +300,7 @@ public class AppUtils {
 //		}
 		return listReturn;
 	}
-	public static List<AppInfo> getUserApp(Context context,
-			boolean isSortByTime) {
-		DbUtil db=new DbUtil(context);
-		ArrayList<AppInfo> listReturn = new ArrayList<AppInfo>();
-		PackageManager packageManager = context.getPackageManager();
-
-		List<PackageInfo> packages = packageManager.getInstalledPackages(0);
-
-		Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-		mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-		final List<ResolveInfo> apps = packageManager.queryIntentActivities(
-				mainIntent, 0);
-		Collections.sort(apps, new ResolveInfo.DisplayNameComparator(
-				packageManager));
-
-		for (int i = 0; i < packages.size(); i++) {
-			PackageInfo packageInfo = packages.get(i);
-			// if(packageInfo.packageName.equals(Configs.THIS_APP_PACKAGE_NAME))
-			// continue;
-			// 判断是否显示此应用 start
-			boolean go = true;
-			for (String pkg : Configs.getHiddendestopPkg()) {
-				if (packageInfo.packageName.equals(pkg)) {
-					go = false;
-					break;
-				}
-				
-			}
-			if (!go) continue;
-			if (packageInfo.packageName.equals(Configs.THIS_APP_PACKAGE_NAME))continue;
-			// 判断是否显示此应用 end
-			AppInfo appInfo = new AppInfo();
-			
-				
-			try {
-				appInfo.appName = packageInfo.applicationInfo.loadLabel(
-						packageManager).toString();
-				appInfo.packageName = packageInfo.packageName;
-				appInfo.versionName = packageInfo.versionName;
-				appInfo.versionCode = packageInfo.versionCode;
-				appInfo.appIcon = packageInfo.applicationInfo
-						.loadIcon(packageManager);
-				appInfo.firstInstallTime = packageInfo.firstInstallTime;
-				appInfo.position=db.GetAppIndex(appInfo.packageName);
-				// Logger.getLogger().i(appInfo.appName + "  " +
-				// appInfo.firstInstallTime);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-			// 系统应用
-			if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0
-					&& true) {
-			
-			} else{
-				 //listReturn.add(appInfo);
-				listReturn.add(appInfo);
-			}
-				// 非系统应用
-				//listReturn.add(appInfo);
-				//listReturn.add(new AppInfo());
-		}
-//		if (isSortByTime) {
-//			AppTimerDesc comparator = new AppTimerDesc();
-//			Collections.sort(listReturn, comparator);
-//		}
-		
-		AppPos comparator_pos = new AppPos();
-		Collections.sort(listReturn, comparator_pos);
-//		for(int i=0;i<listReturn.size();i++){
-//			Log.d("index",listReturn.get(i).packageName+"----"+listReturn.get(i).appName+"#index:"+listReturn.get(i).position);
-//		}
-		return listReturn;
-	}
+	
 	public static List<AppInfo> getUserInstalledApps(Context context,
 			boolean isSortByTime) {
 		ArrayList<AppInfo> listReturn = new ArrayList<AppInfo>();
@@ -543,13 +624,13 @@ public class AppUtils {
 	}
 
 	public static class AppInfo {
-		private Drawable appIcon;
-		private String appName;
-		private String packageName;
-		private int versionCode;
-		private String versionName;
-		private boolean isInDesktop;
-		private Long firstInstallTime;
+		public Drawable appIcon;
+		public String appName;
+		public String packageName;
+		public int versionCode;
+		public String versionName;
+		public boolean isInDesktop;
+		public Long firstInstallTime;
 		public int position=0;
 
 		public Long getFirstInstallTime() {

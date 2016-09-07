@@ -213,7 +213,9 @@ public class MainActivity extends FragmentActivity{
 	
 	private void initViews() {
 		mListViews = new ArrayList<NavigationItem>();
-		mNavigationItem=new NavigationItem(0,R.string.index,mInflater.inflate(R.layout.view_page_index, null));
+		View mIndexView=mInflater.inflate(R.layout.view_page_index, null);
+		Configs.indexView=(PageIndexView) mIndexView.findViewById(R.id.pageindexview);
+		mNavigationItem=new NavigationItem(0,R.string.index,mIndexView);
 		
 		mListViews.add(mNavigationItem);
 		mListViews.add(new NavigationItem(1,R.string.apps,mInflater.inflate(R.layout.view_page_apps, null)));
@@ -454,6 +456,7 @@ public class MainActivity extends FragmentActivity{
 	private void initWidget() {
 		mNavigationContainer = (LinearLayout) findViewById(R.id.navigation_container);
 		mFragmentContainer = (ViewPager) findViewById(R.id.fragment_container);
+	
 		mFragmentContainer.setOffscreenPageLimit(3);
 		mViewFlipper = (ViewFlipper) findViewById(R.id.flipper);
 		mStatusBar = (StatusBar) findViewById(R.id.statusbar);

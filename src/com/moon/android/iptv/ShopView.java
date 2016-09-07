@@ -480,7 +480,7 @@ public class ShopView extends LinearLayout {
 				int position, long id) {
 			// IsLongClick=true;
 			// mAppsAdapter.notifyDataSetChanged(position, true);
-			IndexSort.getIndexSort(mContext, mHandler).init();
+			IndexSort.getIndexSort(mContext).init();
 			// DeskAppMgr deskAppMgr=new DeskAppMgr(mContext);
 			// deskAppMgr.setData(mAppsAdapter,mListAppInfo);
 			// deskAppMgr.show();

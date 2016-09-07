@@ -1,5 +1,8 @@
 package com.bestbaan.moonbox.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,6 +34,7 @@ public class DbUtil extends SQLiteOpenHelper {
 
 		db.execSQL("CREATE TABLE IF NOT EXISTS index_app_info (id integer primary key autoincrement,pkgname varchar(255) UNIQUE,orderid integer(11))");
 		db.execSQL("CREATE TABLE IF NOT EXISTS json_cache (id integer primary key autoincrement,jsonkey varchar(255) UNIQUE,jsonstr TEXT)");
+		db.execSQL("CREATE TABLE IF NOT EXISTS App_List (id integer primary key autoincrement,pkgname varchar(255),tag varchar(255))");
 	
 	}
    
@@ -39,6 +43,47 @@ public class DbUtil extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
                 
 	}
+	public void delShowApp(String Tag){
+		try {
+			db=getReadableDatabase();
+			db.execSQL("DELETE FROM App_List where tag=?",new String[]{Tag});
+			db.close();
+	
+    	}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	public void saveShowApp(List<String> pkglist,String Tag){
+		try {
+			db=getReadableDatabase();
+			for(int i=0;i<pkglist.size();i++){
+				db.execSQL("INSERT INTO App_List(pkgname,tag) values(?,?)",new Object[]{pkglist.get(i),Tag});
+			}
+			
+			db.close();
+	
+    	}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	public List<String> GetAppByTag(String Tag){
+		List<String> list=new ArrayList<String>();
+		try {
+			db=getReadableDatabase();
+			Cursor Row =db.rawQuery("Select pkgname from App_List where tag=?",new String[]{Tag});
+			while (Row.moveToNext()) {
+				list.add(Row.getString(0));
+			}
+			
+			
+			db.close();
+		
+    	}catch (Exception e) {
+			// TODO: handle exception
+    		
+		}
+		return list;
+	} 
 	public void delAppindex(String pkgname){
 		try {
 			db=getReadableDatabase();

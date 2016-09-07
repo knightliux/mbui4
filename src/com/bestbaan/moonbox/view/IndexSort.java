@@ -8,6 +8,7 @@ import com.bestbaan.moonbox.util.ActivityUtils;
 import com.bestbaan.moonbox.util.AppUtils;
 import com.bestbaan.moonbox.util.RequestUtil;
 import com.bestbaan.moonbox.util.AppUtils.AppInfo;
+import com.moon.android.iptv.Configs;
 import com.moonbox.android.iptv.R;
 
 import android.content.Context;
@@ -35,7 +36,7 @@ public class IndexSort extends LinearLayout {
 	private IndexAppAdapter mAppsAdapter;
 	private List<AppInfo> mListAppInfo = new ArrayList<AppInfo>();
 	private static IndexSort indexSort=null;
-	private static Handler mhandler;
+	//private static Handler mhandler;
 	private boolean islongclick=false;
 	private IndexSort(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -53,11 +54,11 @@ public class IndexSort extends LinearLayout {
 		this(context, null);
 		// TODO Auto-generated constructor stub
 	}
-    public static IndexSort getIndexSort(Context context,Handler handler){
+    public static IndexSort getIndexSort(Context context){
     	if (indexSort == null){
     		indexSort = new IndexSort(context);
     	}
-    	mhandler=handler;	
+    	//mhandler=handler;	
 		return indexSort;
 		
     	
@@ -136,8 +137,8 @@ public class IndexSort extends LinearLayout {
 			if (KeyEvent.ACTION_UP == event.getAction()) {
 				switch (keyCode) {
 				case KeyEvent.KEYCODE_BACK:
-					
-					mhandler.sendEmptyMessage(9999);
+					Configs.indexView.updateGridView(false);
+					//mhandler.sendEmptyMessage(9999);
 					mPopup.dismiss();
 					break;
 				}

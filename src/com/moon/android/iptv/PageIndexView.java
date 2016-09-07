@@ -16,6 +16,7 @@ import android.R.bool;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -43,6 +44,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bestbaan.moonbox.adapter.IndexAppAdapter;
 import com.bestbaan.moonbox.ayncpicture.ImageLoader;
@@ -102,7 +104,14 @@ public class PageIndexView extends LinearLayout {
 	public PageIndexView(Context context) {
 		this(context, null);
 	}
-
+	public void startSortView(){
+    	if(mListAppInfo.size()>2){
+    		IndexSort.getIndexSort(mContext).init();
+    	}else{
+    		//Toast.makeText(mContext, mContext.getResources().getString(R.string.sort_error), Toast.LENGTH_LONG).show();
+    	}
+    	
+    }
 	private void regToDeskTopReceiver() {
 		IntentFilter filter = new IntentFilter();
 //		filter.addAction(Configs.BroadCastConstant.ACTION_TO_DESKTOP);
@@ -183,14 +192,47 @@ public class PageIndexView extends LinearLayout {
 	 */
 	public void updateGridView(boolean isInit) {
 		
-		List<AppInfo> apps = AppUtils.getUserApp(mContext, true);
-		mListAppInfo.clear();
-		mListAppInfo.addAll(apps);
-	
-		mAppsAdapter = new IndexAppAdapter(mContext, mListAppInfo);
-		mGridApp.setAdapter(mAppsAdapter);
-		mGridApp.setVisibility(View.VISIBLE);
-		
+//		List<AppInfo> apps = AppUtils.getUserApp(mContext, true);
+//		mListAppInfo.clear();
+//		mListAppInfo.addAll(apps);
+//	
+//		mAppsAdapter = new IndexAppAdapter(mContext, mListAppInfo);
+//		mGridApp.setAdapter(mAppsAdapter);
+//		mGridApp.setVisibility(View.VISIBLE);
+		if(isInit){
+        	List<AppInfo> apps = AppUtils.getUserApp(mContext, true);
+    		mListAppInfo.clear();
+    		mListAppInfo.addAll(apps);
+    		AppInfo appInfo=new AppInfo();
+    		appInfo.appName =mContext.getResources().getString(R.string.index_add);
+    		appInfo.packageName = "";
+    		appInfo.versionName = "";
+    		appInfo.versionCode = 0;
+    		appInfo.appIcon =mContext.getResources().getDrawable(R.drawable.ic_add_app_wi);
+    		appInfo.firstInstallTime = (long)0;
+    		appInfo.position=mListAppInfo.size()+1;
+    		mListAppInfo.add(appInfo);
+    		Log.d("indexappsize",mListAppInfo.size()+"");
+    		mAppsAdapter=new IndexAppAdapter(mContext, mListAppInfo);
+    		//mAppsAdapter = new IndexAppAdapter(mContext, mListAppInfo);
+    		mGridApp.setAdapter(mAppsAdapter);
+        }else{
+        	List<AppInfo> apps = AppUtils.getUserApp(mContext, true);
+    		mListAppInfo.clear();
+    		mListAppInfo.addAll(apps);
+    		AppInfo appInfo=new AppInfo();
+    		appInfo.appName =mContext.getResources().getString(R.string.index_add);
+    		appInfo.packageName = "";
+    		appInfo.versionName = "";
+    		appInfo.versionCode = 0;
+    		appInfo.appIcon =mContext.getResources().getDrawable(R.drawable.ic_add_app_wi);
+    		appInfo.firstInstallTime = (long)0;
+    		appInfo.position=mListAppInfo.size()+1;
+    		mListAppInfo.add(appInfo);
+    		mGridApp.setSelection(0);
+    		mAppsAdapter.UpGird(mListAppInfo);	
+        	
+        }
 	}
 
 	private void initData() {
@@ -566,8 +608,20 @@ public class PageIndexView extends LinearLayout {
 //				IsLongClick=false;
 //				mAppsAdapter.notifyDataSetChanged(position, false);
 			
-				String pkgname = mListAppInfo.get(position).getPackageName();
+//				String pkgname = mListAppInfo.get(position).getPackageName();
+//				ActivityUtils.startActivity(mContext, pkgname);
+			String pkgname = mListAppInfo.get(position).getPackageName();
+			//Log.d("name",pkgname);
+			if(pkgname.equals("")){
+				Intent intent=new Intent(); 
+				     ComponentName component=new ComponentName(mContext, com.moon.android.iptv.AllAppActicity.class);  
+			        intent.setComponent(component); 
+			     
+			     
+			        mContext.startActivity(intent);
+			}else{
 				ActivityUtils.startActivity(mContext, pkgname);
+			} 
 		
 		
 		}
@@ -580,7 +634,7 @@ public class PageIndexView extends LinearLayout {
 				int position, long id) {
 			//IsLongClick=true;   
 		//	mAppsAdapter.notifyDataSetChanged(position, true);
-			IndexSort.getIndexSort(mContext,mHandler).init();
+			IndexSort.getIndexSort(mContext).init();
 //			DeskAppMgr deskAppMgr=new DeskAppMgr(mContext);
 //			deskAppMgr.setData(mAppsAdapter,mListAppInfo);
 //			deskAppMgr.show();

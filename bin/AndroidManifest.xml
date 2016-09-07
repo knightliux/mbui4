@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moonbox.android.iptv"
-    android:sharedUserId="android.uid.system"
-    android:versionCode="20160617"
-    android:versionName="V401606002" >
+ 
+    android:versionCode="20160907"
+    android:versionName="V401609001" >
  
     <!-- android:sharedUserId="android.uid.system" -->
     <!-- android:versionName="20140924" -->
@@ -55,6 +55,9 @@
             android:name="com.moon.android.iptv.WelcomeActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
+         <activity
+            android:name="com.moon.android.iptv.AllAppActicity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.moon.android.iptv.LanguageActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
